@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'AgentX — Your AI Conversation Buddy',
-  description: 'AgentX remembers everything about you and gets smarter the more you talk. Pick a topic, start chatting, and watch your AI buddy learn.',
+  title: "Apex-Agent — Strategic Intelligence for the Paddock",
+  description: "Autonomous Race Engineering Agent.",
 };
 
 export default function RootLayout({ children }) {
