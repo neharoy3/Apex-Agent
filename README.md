@@ -25,3 +25,22 @@ Open [http://localhost:3000](http://localhost:3000) —  AI agent is live! 🎉
 ---
 > [!NOTE]
 *Built using the [GDG-KMIT/AgentX](https://github.com/GDG-KMIT/AgentX) template.*
+
+## 🏗️ Architecture
+
+```
+┌─────────────────┐      POST /api/chat      ┌──────────────────┐
+│   User Browser  │ ──────────────────────▶  │  Vercel API Route │
+│   (React App)   │ ◀──────────────────────  │  (route.js)       │
+└─────────────────┘      JSON response       └────────┬─────────┘
+                                                       │
+                                                       │ Gemini API
+                                                       │ (server-side only)
+                                                       ▼
+                                              ┌──────────────────┐
+                                              │  Google Gemini    │
+                                              │  (configurable)   │
+                                              └──────────────────┘
+```
+
+---
