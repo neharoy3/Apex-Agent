@@ -11,7 +11,6 @@
  */
 
 const agentConfig = {
-
   // ─── BASIC INFO ───────────────────────────────────────────────
   // Your agent's name and branding (shown in the header & title)
   name: "Apex-Agent",
@@ -76,12 +75,27 @@ const agentConfig = {
   //   type:      "string" or "array"
   //   extract:   Whether to include this key in the extraction prompt
   memorySchema: [
-    { key: "name", label: "👤 Driver Name", type: "string", extract: true },
+    { key: "name", label: "👤 Strategist", type: "string", extract: true },
     { key: "fav_team", label: "🏎️ Constructor", type: "string", extract: true },
-    { key: "fav_driver", label: "🏁 Primary Driver", type: "string", extract: true },
+    {
+      key: "fav_driver",
+      label: "🏁 Primary Driver",
+      type: "string",
+      extract: true,
+    },
     { key: "hot_take", label: "🔥 Race Take", type: "string", extract: true },
-    { key: "experience_level", label: "📊 F1 Knowledge", type: "string", extract: true },
-    { key: "topics_discussed", label: "💬 Comms Log", type: "array", extract: false },
+    {
+      key: "experience_level",
+      label: "📊 F1 Knowledge",
+      type: "string",
+      extract: true,
+    },
+    {
+      key: "topics_discussed",
+      label: "💬 Comms Log",
+      type: "array",
+      extract: false,
+    },
   ],
 
   // How many user messages to batch before running memory extraction
@@ -101,10 +115,26 @@ const agentConfig = {
 
   // Fallback topics shown when the API is unavailable or cached
   fallbackTrends: [
-    { category: "Race Strategy", topic: "Optimal pit window for the next GP", icon: "📊" },
-    { category: "Silly Season", topic: "Analyzing the latest 2027 driver rumors", icon: "🔄" },
-    { category: "Technical Ops", topic: "Impact of the new 2026 engine regulations", icon: "🛠️" },
-    { category: "Grand Prix Sims", topic: "Simulating track conditions and grip levels", icon: "🔮" },
+    {
+      category: "Race Strategy",
+      topic: "Optimal pit window for the next GP",
+      icon: "📊",
+    },
+    {
+      category: "Silly Season",
+      topic: "Analyzing the latest 2027 driver rumors",
+      icon: "🔄",
+    },
+    {
+      category: "Technical Ops",
+      topic: "Impact of the new 2026 engine regulations",
+      icon: "🛠️",
+    },
+    {
+      category: "Grand Prix Sims",
+      topic: "Simulating track conditions and grip levels",
+      icon: "🔮",
+    },
   ],
 
   // How long to cache trending topics (in milliseconds)
@@ -122,6 +152,21 @@ const agentConfig = {
   // Which Gemini model to use (configured in route.js)
   model: "gemini-2.5-flash-lite",
 
+  // Backup models used automatically when the primary model is rate-limited
+  // or out of quota. Order matters: first available model will be used.
+  fallbackModels: [
+    "gemini-2.5-pro",
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
+    "gemini-2.0-flash",
+  ],
+
+  // Enforce Google Search grounding before returning factual answers.
+  requireSearchVerification: true,
+
+  // "refuse": return an error if search verification is unavailable.
+  // "best-effort": return model answer even if no grounding sources are attached.
+  searchVerificationFallback: "best-effort",
 };
 
 export default agentConfig;
