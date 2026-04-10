@@ -1,4 +1,5 @@
 # 🏁 Apex-Agent — F1 Strategic AI 
+[![Generated From Template](https://img.shields.io/badge/generated%20from%20template-AgentX-blue)](https://github.com/GDG-KMIT/AgentX)
 
 A specialized AI Race Engineer built for the F1 paddock. It remembers your favorite teams and race takes to provide personalized strategy insights.
 ---
@@ -22,9 +23,6 @@ npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) —  AI agent is live! 🎉
 
----
-> [!NOTE]
-*Built using the [GDG-KMIT/AgentX](https://github.com/GDG-KMIT/AgentX) template.*
 ---
 
 ## ⏫ Upgrades
